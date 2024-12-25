@@ -1,6 +1,7 @@
 # Home
 
-Overview of site purpose, content and structure. 
+## Site Purpose and Structure 
 
-About foxxai.
+## About the Author
+
 
