@@ -16,15 +16,15 @@ theme:
         name: Switch to light mode
 
   features:
-    - navigation.instant
-    - navigation.instant.progress
-    - navigation.tracking
-    - navigation.tabs
-   # - navigation.tabs.sticky
+  # - navigation.instant
+  # - navigation.instant.progress
+  # - navigation.tracking
+  # - navigation.tabs
+  # - navigation.tabs.sticky
     - navigation.sections
-    - navigation.expand
+  # - navigation.expand
     - navigation.path
-    - navigation.prune
+  # - navigation.prune
     - navigation.indexes
     - navigation.top
 
