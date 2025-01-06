@@ -1,6 +1,8 @@
-Insert general description of site purpose and research foci. 
+Insert site description. 
 
 ## Project Foci
+
+Describe the nature and purpose of the sub-projects.
 
 ## About Foxxai
 
