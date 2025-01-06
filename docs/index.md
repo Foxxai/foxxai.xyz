@@ -1,5 +1,5 @@
-Hmman-Ai partnering.
+Insert general description of site purpose and research foci. 
 
-## Site Purpose and Structure 
+## About Foxxai
 
-## About Goxxai
+Provide a general introduction to the author and link to his CV.
