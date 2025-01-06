@@ -1,5 +1,5 @@
-# Home
+Hmman-Ai partnering.
 
 ## Site Purpose and Structure 
 
-## About the Author
+## About Goxxai
