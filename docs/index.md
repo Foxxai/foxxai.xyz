@@ -1,4 +1,4 @@
-Insert site description. 
+Insert site description here.
 
 ## Project Foci
 
