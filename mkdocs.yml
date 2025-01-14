@@ -19,14 +19,14 @@ theme:
   # - navigation.instant
   # - navigation.instant.progress
   # - navigation.tracking
-    - navigation.tabs
+  # - navigation.tabs
   # - navigation.tabs.sticky
-    - navigation.sections
+  # - navigation.sections
   # - navigation.expand
-    - navigation.path
+  # - navigation.path
   # - navigation.prune
-    - navigation.indexes
-    - navigation.top
+  # - navigation.indexes
+  # - navigation.top
 
 plugins:
   - search
