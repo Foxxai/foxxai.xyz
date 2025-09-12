@@ -95,13 +95,23 @@
     --md-typeset-color: #ffffff;
 }
 
-/* Override header styles completely */
+/* Light mode header with fresh blue gradient */
 .md-header {
-    background-color: #4a6fa5 !important;  /* Light mode color */
+    background: linear-gradient(120deg, #4a6fa5 0%, #6487c3 50%, #4a6fa5 100%) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
 }
 
+/* Dark mode header with sophisticated dark gradient */
 [data-md-color-scheme="slate"] .md-header {
-    background-color: #1e2029 !important;  /* Dark mode color */
+    background: linear-gradient(120deg, #2c3e50 0%, #3d5a80 50%, #2c3e50 100%) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+
+/* Add subtle animation on hover */
+.md-header:hover {
+    background-position: right center !important;
+    background-size: 200% auto !important;
+    transition: all 0.5s ease !important;
 }
 
 /* Force white text and icons in header for both modes */
