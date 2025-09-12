@@ -21,17 +21,10 @@ theme:
         name: Switch to light mode
 
   features:
-  # - navigation.instant
-  # - navigation.instant.progress
-  # - navigation.tracking
-  # - navigation.tabs
-  # - navigation.tabs.sticky
-  # - navigation.sections
-  # - navigation.expand
-  # - navigation.path
     - navigation.prune
-  # - navigation.indexes
-  # - navigation.top
+    - navigation.instant
+    - header.autohide
+    - toc.integrate
 
 extra_css:
   - stylesheets/extra.css

@@ -80,13 +80,26 @@
 }
 
 /* Hide the site title in the left navigation */
-.md-nav--primary .md-nav__title {
+[dir=ltr] .md-nav--integrated>.md-nav__title, 
+[dir=ltr] .md-nav--primary .md-nav__title,
+.md-nav--primary .md-nav__title[for="__drawer"] {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* Adjust spacing at the top of the nav menu to compensate for removed title */
-.md-nav--primary .md-nav__list {
-    margin-top: 0.5rem;
+/* Remove any extra space from the hidden title */
+.md-nav--primary > .md-nav__title {
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Adjust top spacing of the first nav item */
+.md-nav--primary > .md-nav__list {
+    margin-top: 0.25rem !important;
 }
 
 /* Additional specificity for navigation */
