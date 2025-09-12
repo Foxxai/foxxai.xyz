@@ -70,13 +70,30 @@
     text-rendering: optimizeLegibility;  /* Better kerning and ligatures */
 }
 
-/* Force navigation font styles */
+/* Custom header styling with gradient */
+.md-header {
+    background: linear-gradient(120deg, #E6E6FA 0%, #B8C6DB 100%);
+    color: #2c3e50 !important;  /* Darker text for better contrast */
+    transition: background 0.3s ease;
+}
+
+/* Ensure text remains readable on the gradient */
 .md-header__title,
 .md-header__topic,
 .md-nav__title,
 .md-nav__item,
 .md-nav__link {
     font-family: "Roboto", Arial, sans-serif !important;
+}
+
+/* Style header buttons and icons for better contrast */
+.md-header__button {
+    color: #2c3e50 !important;
+}
+
+/* Subtle hover effect on header elements */
+.md-header__button:hover {
+    opacity: 0.8;
 }
 
 /* Hide the site title in the left navigation */
