@@ -79,6 +79,16 @@
     font-family: "Roboto", Arial, sans-serif !important;
 }
 
+/* Hide the site title in the left navigation */
+.md-nav--primary .md-nav__title {
+    display: none !important;
+}
+
+/* Adjust spacing at the top of the nav menu to compensate for removed title */
+.md-nav--primary .md-nav__list {
+    margin-top: 0.5rem;
+}
+
 /* Additional specificity for navigation */
 [dir=ltr] .md-header__title, 
 [dir=ltr] .md-nav__title {
