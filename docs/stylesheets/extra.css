@@ -142,38 +142,31 @@
     z-index: 1;
 }
 
-/* Light mode neural network */
-[data-md-color-scheme="default"] body::before {
+/* Neural network background for both themes */
+body::before {
     content: "";
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: url('../assets/neural-network-light.svg');
+    right: -100px;  /* Offset to the right */
+    bottom: -100px; /* Offset downward */
+    width: 800px;   /* Larger area to account for offset */
+    height: 800px;  /* Larger area to account for offset */
+    background-image: url('../assets/neural-network.png');
     background-repeat: no-repeat;
     background-position: bottom right;
-    background-size: 600px;
+    background-size: contain;
     pointer-events: none;
-    opacity: 0.1;
+    opacity: 0.15;
     z-index: 0;
 }
 
-/* Dark mode neural network */
+/* Light mode adjustments */
+[data-md-color-scheme="default"] body::before {
+    filter: brightness(0.7) contrast(0.7);
+}
+
+/* Dark mode adjustments */
 [data-md-color-scheme="slate"] body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: url('../assets/neural-network-dark.svg');
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    background-size: 600px;
-    pointer-events: none;
-    opacity: 0.1;
-    z-index: 0;
+    filter: brightness(1.3) invert(1);
 }
 
 /* Light mode header */
