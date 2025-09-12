@@ -1,21 +1,30 @@
 /* Typography customization */
 :root {
-    --md-text-font: "Charter", "Georgia", serif;
+    --md-text-font: "Charter", "Georgia", serif !important;
     --md-code-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+.md-typeset h1, 
+.md-typeset h2, 
+.md-typeset h3, 
+.md-typeset h4, 
+.md-typeset h5, 
+.md-typeset h6 {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     font-weight: 900;
     letter-spacing: -0.02em;
 }
 
 /* Body text */
-.md-content {
-    font-size: 1.3125rem;
+.md-typeset {
+    font-size: 1.3125rem !important;
     line-height: 1.8;
     color: #292929;
+}
+
+.md-typeset p {
+    font-size: inherit;
 }
 
 /* Paragraph spacing */

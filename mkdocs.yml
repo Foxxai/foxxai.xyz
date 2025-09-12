@@ -31,7 +31,7 @@ theme:
   # - navigation.top
 
 extra_css:
-  - assets/extra.css
+  - stylesheets/extra.css
 
 plugins:
   - search
