@@ -204,24 +204,34 @@
 
 .md-footer-meta__inner {
     display: flex;
-    justify-content: flex-end;  /* Right align */
+    justify-content: center;  /* Center align */
     padding: 1rem;
 }
 
 .md-footer-copyright {
     width: 100%;
-    text-align: right;  /* Right align */
+    text-align: center;  /* Center align */
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif !important;
     font-size: 0.8rem;
     margin: 0;
     max-width: none !important;
 }
 
-/* Hide specific elements we don't want */
-.md-footer-meta__inner .md-social,
-.md-footer-copyright > div:not(:last-child),
-.md-footer-copyright__highlight {
+/* Aggressively hide all default footer content */
+.md-footer-copyright > *:not(.copyright-text),
+.md-footer-copyright__highlight,
+.md-footer__inner > *:not(.md-footer-meta),
+.md-copyright__highlight,
+[data-md-component="footer-notice"],
+.md-social {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
 }
 
 /* Dark mode neural network */

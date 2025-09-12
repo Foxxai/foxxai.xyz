@@ -12,6 +12,9 @@ theme:
     logo: null
   footer:
     social: false
+    generator: false  # This should disable the "Made with" text
+extra:
+  generator: false    # Belt and suspenders approach to disable generator notice
   palette:
     - scheme: default
       primary: custom
