@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="0.5" />
+        </filter>
+    </defs>
+    <g opacity="0.03" fill="#4a6fa5" stroke="#4a6fa5">
+        <!-- Nodes -->
+        <circle cx="150" cy="200" r="3" />
+        <circle cx="280" cy="150" r="3" />
+        <circle cx="400" cy="180" r="3" />
+        <circle cx="180" cy="300" r="3" />
+        <circle cx="320" cy="280" r="3" />
+        <circle cx="450" cy="320" r="3" />
+        <circle cx="200" cy="400" r="3" />
+        <circle cx="350" cy="380" r="3" />
+        <circle cx="480" cy="420" r="3" />
+        
+        <!-- Connections -->
+        <line x1="150" y1="200" x2="280" y2="150" stroke-width="1" filter="url(#blur)" />
+        <line x1="280" y1="150" x2="400" y2="180" stroke-width="1" filter="url(#blur)" />
+        <line x1="180" y1="300" x2="320" y2="280" stroke-width="1" filter="url(#blur)" />
+        <line x1="320" y1="280" x2="450" y2="320" stroke-width="1" filter="url(#blur)" />
+        <line x1="200" y1="400" x2="350" y2="380" stroke-width="1" filter="url(#blur)" />
+        <line x1="350" y1="380" x2="480" y2="420" stroke-width="1" filter="url(#blur)" />
+        <line x1="280" y1="150" x2="320" y2="280" stroke-width="1" filter="url(#blur)" />
+        <line x1="320" y1="280" x2="350" y2="380" stroke-width="1" filter="url(#blur)" />
+    </g>
+</svg>

@@ -146,27 +146,9 @@
     right: 0;
     width: 600px;
     height: 600px;
-    background-image: radial-gradient(circle at 30% 20%, rgba(100, 135, 195, 0.03) 2px, transparent 2px),
-                      radial-gradient(circle at 70% 60%, rgba(100, 135, 195, 0.03) 2px, transparent 2px),
-                      radial-gradient(circle at 40% 80%, rgba(100, 135, 195, 0.03) 2px, transparent 2px),
-                      radial-gradient(circle at 85% 30%, rgba(100, 135, 195, 0.03) 2px, transparent 2px);
-    background-size: 300px 300px;
-    opacity: 0.7;
-    pointer-events: none;
-    z-index: -1;
-}
-
-[data-md-color-scheme="default"] .md-main::before {
-    content: "";
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 600px;
-    height: 600px;
-    background: linear-gradient(45deg, transparent 45%, rgba(100, 135, 195, 0.03) 45%, rgba(100, 135, 195, 0.03) 55%, transparent 55%),
-                linear-gradient(-45deg, transparent 45%, rgba(100, 135, 195, 0.03) 45%, rgba(100, 135, 195, 0.03) 55%, transparent 55%);
-    background-size: 100px 100px;
-    opacity: 0.5;
+    background-image: url('../assets/images/neural-network-light.svg');
+    background-repeat: no-repeat;
+    background-position: bottom right;
     pointer-events: none;
     z-index: -1;
 }
@@ -179,27 +161,9 @@
     right: 0;
     width: 600px;
     height: 600px;
-    background-image: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.025) 2px, transparent 2px),
-                      radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.025) 2px, transparent 2px),
-                      radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.025) 2px, transparent 2px),
-                      radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.025) 2px, transparent 2px);
-    background-size: 300px 300px;
-    opacity: 0.7;
-    pointer-events: none;
-    z-index: -1;
-}
-
-[data-md-color-scheme="slate"] .md-main::before {
-    content: "";
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 600px;
-    height: 600px;
-    background: linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.025) 45%, rgba(255, 255, 255, 0.025) 55%, transparent 55%),
-                linear-gradient(-45deg, transparent 45%, rgba(255, 255, 255, 0.025) 45%, rgba(255, 255, 255, 0.025) 55%, transparent 55%);
-    background-size: 100px 100px;
-    opacity: 0.5;
+    background-image: url('../assets/images/neural-network-dark.svg');
+    background-repeat: no-repeat;
+    background-position: bottom right;
     pointer-events: none;
     z-index: -1;
 }
