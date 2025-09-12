@@ -185,7 +185,7 @@
 [data-md-color-scheme="slate"] .md-typeset h4,
 [data-md-color-scheme="slate"] .md-typeset h5,
 [data-md-color-scheme="slate"] .md-typeset h6 {
-    color: #a5b3e6 !important;
+    color: #ff9d8d !important;  /* Warm pastel coral */
 }
 
 /* Dark mode neural network */
