@@ -144,16 +144,16 @@
     position: fixed;
     display: block !important;
     top: 50%;
-    right: -100px;
+    right: -200px;
     transform: translateY(-50%);
-    width: 500px;
-    height: 500px;
+    width: 800px;
+    height: 800px;
     background-image: url('../assets/neural-network-light.png');
     background-repeat: no-repeat;
     background-position: center right;
     background-size: contain;
     pointer-events: none;
-    opacity: 0.15;
+    opacity: 0.08;
     z-index: 9999;
 }
 
@@ -163,16 +163,16 @@
     position: fixed;
     display: block !important;
     top: 50%;
-    right: -100px;
+    right: -200px;
     transform: translateY(-50%);
-    width: 500px;
-    height: 500px;
+    width: 800px;
+    height: 800px;
     background-image: url('../assets/neural-network-dark.png');
     background-repeat: no-repeat;
     background-position: center right;
     background-size: contain;
     pointer-events: none;
-    opacity: 0.15;
+    opacity: 0.08;
     z-index: 9999;
 }
 
