@@ -133,41 +133,48 @@
 }
 
 /* Add neural network background effect */
-.md-grid {
-    position: relative;  /* Create positioning context */
+.root {
+    --md-neural-opacity: 0.2;
+}
+
+/* Force the main container to establish a stacking context */
+.md-main {
+    isolation: isolate;
 }
 
 /* Neural network background */
-.md-content__inner {
-    position: relative;  /* Create positioning context */
+[data-md-component="container"] {
+    position: relative !important;
 }
 
-.md-content__inner::before {
+[data-md-component="container"]::before {
     content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 80%;  /* Position relative to content width */
-    width: 500px;
-    height: 800px;
+    position: fixed;
+    display: block !important;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
     background-image: url('../assets/neural-network.png');
     background-repeat: no-repeat;
-    background-position: top left;
+    background-position: center right;
     background-size: contain;
     pointer-events: none;
-    opacity: 0.25;
-    z-index: -1;
-    /* Debug border - will remove once position is confirmed */
-    border: 1px solid red;
+    z-index: 9999;
+    border: 2px solid red;  /* Debug border */
+    background-color: rgba(255, 0, 0, 0.1); /* Semi-transparent background for testing */
 }
 
 /* Light mode adjustments */
-[data-md-color-scheme="default"] .md-content__inner::before {
+[data-md-color-scheme="default"] [data-md-component="container"]::before {
+    opacity: var(--md-neural-opacity);
     filter: brightness(0.7) contrast(0.7);
 }
 
 /* Dark mode adjustments */
-[data-md-color-scheme="slate"] .md-content__inner::before {
+[data-md-color-scheme="slate"] [data-md-component="container"]::before {
+    opacity: var(--md-neural-opacity);
     filter: brightness(1.3) invert(1);
 }
 
