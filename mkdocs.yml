@@ -3,6 +3,8 @@ site_url: https://foxxai.xyz
 
 theme:
   name: material
+  logo: assets/avatar.png
+  favicon: assets/avatar.png
   palette: 
     # Palette toggle for light mode
     - scheme: default
@@ -27,6 +29,9 @@ theme:
     - navigation.prune
   # - navigation.indexes
   # - navigation.top
+
+extra_css:
+  - assets/extra.css
 
 plugins:
   - search
