@@ -197,41 +197,38 @@
     background-color: var(--md-default-bg-color);
 }
 
-/* Hide ALL default footer content */
+/* Hide the previous navigation footer */
 .md-footer__inner {
-    display: none !important;
+    display: none;
 }
 
+/* Style the meta footer */
 .md-footer-meta__inner {
     display: flex;
-    justify-content: center;  /* Center align */
-    padding: 1rem;
+    justify-content: center;
+    padding: 1.5rem 0;
 }
 
+/* Hide social icons */
+.md-social {
+    display: none;
+}
+
+/* Style the copyright section */
 .md-footer-copyright {
     width: 100%;
-    text-align: center;  /* Center align */
+    text-align: center;
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif !important;
     font-size: 0.8rem;
     margin: 0;
-    max-width: none !important;
+    padding: 0 1rem;
+    max-width: none;
+    color: var(--md-default-fg-color--light);
 }
 
-/* Aggressively hide all default footer content */
-.md-footer-copyright > *:not(.copyright-text),
-.md-footer-copyright__highlight,
-.md-footer__inner > *:not(.md-footer-meta),
-.md-copyright__highlight,
-[data-md-component="footer-notice"],
-.md-social {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
+/* Hide the Made with Material notice */
+.md-footer-copyright__highlight {
+    display: none;
 }
 
 /* Dark mode neural network */
