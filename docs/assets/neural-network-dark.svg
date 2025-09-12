@@ -1,30 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-        <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="0.5" />
-        </filter>
-    </defs>
-    <g opacity="0.025" fill="#ffffff" stroke="#ffffff">
-        <!-- Nodes -->
-        <circle cx="150" cy="200" r="3" />
-        <circle cx="280" cy="150" r="3" />
-        <circle cx="400" cy="180" r="3" />
-        <circle cx="180" cy="300" r="3" />
-        <circle cx="320" cy="280" r="3" />
-        <circle cx="450" cy="320" r="3" />
-        <circle cx="200" cy="400" r="3" />
-        <circle cx="350" cy="380" r="3" />
-        <circle cx="480" cy="420" r="3" />
-        
-        <!-- Connections -->
-        <line x1="150" y1="200" x2="280" y2="150" stroke-width="1" filter="url(#blur)" />
-        <line x1="280" y1="150" x2="400" y2="180" stroke-width="1" filter="url(#blur)" />
-        <line x1="180" y1="300" x2="320" y2="280" stroke-width="1" filter="url(#blur)" />
-        <line x1="320" y1="280" x2="450" y2="320" stroke-width="1" filter="url(#blur)" />
-        <line x1="200" y1="400" x2="350" y2="380" stroke-width="1" filter="url(#blur)" />
-        <line x1="350" y1="380" x2="480" y2="420" stroke-width="1" filter="url(#blur)" />
-        <line x1="280" y1="150" x2="320" y2="280" stroke-width="1" filter="url(#blur)" />
-        <line x1="320" y1="280" x2="350" y2="380" stroke-width="1" filter="url(#blur)" />
-    </g>
+    <style>
+        .node { fill: rgba(255, 255, 255, 0.1); }
+        .line { stroke: rgba(255, 255, 255, 0.05); stroke-width: 1; }
+    </style>
+    
+    <!-- Neural Network Pattern -->
+    <!-- Layer 1 -->
+    <circle class="node" cx="100" cy="150" r="8"/>
+    <circle class="node" cx="100" cy="250" r="8"/>
+    <circle class="node" cx="100" cy="350" r="8"/>
+    <circle class="node" cx="100" cy="450" r="8"/>
+    
+    <!-- Layer 2 -->
+    <circle class="node" cx="250" cy="200" r="8"/>
+    <circle class="node" cx="250" cy="300" r="8"/>
+    <circle class="node" cx="250" cy="400" r="8"/>
+    
+    <!-- Layer 3 -->
+    <circle class="node" cx="400" cy="250" r="8"/>
+    <circle class="node" cx="400" cy="350" r="8"/>
+    
+    <!-- Connections Layer 1 to 2 -->
+    <line class="line" x1="100" y1="150" x2="250" y2="200"/>
+    <line class="line" x1="100" y1="150" x2="250" y2="300"/>
+    <line class="line" x1="100" y1="150" x2="250" y2="400"/>
+    
+    <line class="line" x1="100" y1="250" x2="250" y2="200"/>
+    <line class="line" x1="100" y1="250" x2="250" y2="300"/>
+    <line class="line" x1="100" y1="250" x2="250" y2="400"/>
+    
+    <line class="line" x1="100" y1="350" x2="250" y2="200"/>
+    <line class="line" x1="100" y1="350" x2="250" y2="300"/>
+    <line class="line" x1="100" y1="350" x2="250" y2="400"/>
+    
+    <line class="line" x1="100" y1="450" x2="250" y2="200"/>
+    <line class="line" x1="100" y1="450" x2="250" y2="300"/>
+    <line class="line" x1="100" y1="450" x2="250" y2="400"/>
+    
+    <!-- Connections Layer 2 to 3 -->
+    <line class="line" x1="250" y1="200" x2="400" y2="250"/>
+    <line class="line" x1="250" y1="200" x2="400" y2="350"/>
+    
+    <line class="line" x1="250" y1="300" x2="400" y2="250"/>
+    <line class="line" x1="250" y1="300" x2="400" y2="350"/>
+    
+    <line class="line" x1="250" y1="400" x2="400" y2="250"/>
+    <line class="line" x1="250" y1="400" x2="400" y2="350"/>
 </svg>
