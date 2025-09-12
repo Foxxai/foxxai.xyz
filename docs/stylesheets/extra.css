@@ -132,29 +132,45 @@
     z-index: -1;
 }
 
-/* Accent line at the top of content */
+/* Add subtle light source effect */
 .md-main__inner {
     position: relative;
 }
 
-[data-md-color-scheme="default"] .md-main__inner::before {
+/* Light mode ambient light */
+[data-md-color-scheme="default"] .md-main__inner::after {
     content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed;
+    bottom: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, rgba(74, 111, 165, 0.2), rgba(100, 135, 195, 0.1));
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(
+        circle at bottom right,
+        rgba(100, 135, 195, 0.05) 0%,
+        rgba(100, 135, 195, 0.02) 30%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    pointer-events: none;
+    z-index: -1;
 }
 
-[data-md-color-scheme="slate"] .md-main__inner::before {
+/* Dark mode ambient light */
+[data-md-color-scheme="slate"] .md-main__inner::after {
     content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed;
+    bottom: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, rgba(74, 111, 165, 0.3), rgba(61, 90, 128, 0.1));
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(
+        circle at bottom right,
+        rgba(74, 111, 165, 0.08) 0%,
+        rgba(61, 90, 128, 0.03) 30%,
+        rgba(30, 32, 41, 0) 70%
+    );
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* Light mode header */
