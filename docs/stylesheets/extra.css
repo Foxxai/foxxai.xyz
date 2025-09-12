@@ -133,44 +133,47 @@
 }
 
 /* Add subtle light source effect */
-.md-main__inner {
+.md-main {
     position: relative;
+    overflow: hidden;
 }
 
 /* Light mode ambient light */
-[data-md-color-scheme="default"] .md-main__inner::after {
+[data-md-color-scheme="default"] .md-main::after {
     content: "";
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 800px;
-    height: 800px;
+    position: absolute;
+    bottom: -200px;
+    right: -200px;
+    width: 1000px;
+    height: 1000px;
     background: radial-gradient(
-        circle at bottom right,
-        rgba(100, 135, 195, 0.05) 0%,
-        rgba(100, 135, 195, 0.02) 30%,
-        rgba(255, 255, 255, 0) 70%
+        circle at center,
+        rgba(100, 135, 195, 0.08) 0%,
+        rgba(100, 135, 195, 0.05) 25%,
+        rgba(100, 135, 195, 0.02) 50%,
+        transparent 70%
     );
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
 }
 
 /* Dark mode ambient light */
-[data-md-color-scheme="slate"] .md-main__inner::after {
+[data-md-color-scheme="slate"] .md-main::after {
     content: "";
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 800px;
-    height: 800px;
+    position: absolute;
+    bottom: -200px;
+    right: -200px;
+    width: 1000px;
+    height: 1000px;
     background: radial-gradient(
-        circle at bottom right,
-        rgba(74, 111, 165, 0.08) 0%,
-        rgba(61, 90, 128, 0.03) 30%,
-        rgba(30, 32, 41, 0) 70%
+        circle at center,
+        rgba(74, 111, 165, 0.12) 0%,
+        rgba(74, 111, 165, 0.08) 25%,
+        rgba(61, 90, 128, 0.04) 50%,
+        transparent 70%
     );
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
 }
 
 /* Light mode header */
