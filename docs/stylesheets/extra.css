@@ -188,6 +188,24 @@
     color: #f1a599 !important;  /* Medium warm coral */
 }
 
+/* Footer customization */
+.md-copyright {
+    font-family: "Roboto", sans-serif !important;
+    font-size: 0.8rem;
+}
+
+/* Hide default "Made with" text */
+.md-copyright__highlight {
+    display: none !important;
+}
+
+/* Custom copyright text */
+.md-copyright:after {
+    content: "All content copyright by the author (2025). Comments and feedback are welcome at 546f6464.jbb@gmail.com.";
+    display: block;
+    margin-top: 0.5rem;
+}
+
 /* Dark mode neural network */
 [data-md-color-scheme="slate"] [data-md-component="container"]::before {
     content: "";
