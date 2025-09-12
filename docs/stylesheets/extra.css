@@ -82,7 +82,25 @@
 [data-md-color-scheme="slate"] {
     --md-primary-fg-color: #1a1a1a;
     --md-primary-bg-color: #ffffff;
-    --md-text-color: #ffffff;
+    --md-typeset-color: rgba(255, 255, 255, 0.87) !important;
+    --md-text-color: rgba(255, 255, 255, 0.87) !important;
+    --md-default-fg-color: rgba(255, 255, 255, 0.87) !important;
+    --md-default-fg-color--light: rgba(255, 255, 255, 0.87) !important;
+    --md-default-fg-color--lighter: rgba(255, 255, 255, 0.32) !important;
+    --md-default-fg-color--lightest: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Ensure dark mode text visibility */
+[data-md-color-scheme="slate"] .md-typeset {
+    color: rgba(255, 255, 255, 0.87) !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link {
+    color: rgba(255, 255, 255, 0.87) !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__title {
+    color: rgba(255, 255, 255, 0.87) !important;
 }
 
 /* Ensure text remains readable in both modes */
