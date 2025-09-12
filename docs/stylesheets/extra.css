@@ -80,14 +80,43 @@
 
 /* Dark mode styles */
 [data-md-color-scheme="slate"] {
-    --md-primary-fg-color: #1a1a1a;
+    --md-primary-fg-color: #1e1e1e;
     --md-primary-bg-color: #ffffff;
-    --md-typeset-color: rgba(255, 255, 255, 0.87) !important;
-    --md-text-color: rgba(255, 255, 255, 0.87) !important;
-    --md-default-fg-color: rgba(255, 255, 255, 0.87) !important;
-    --md-default-fg-color--light: rgba(255, 255, 255, 0.87) !important;
-    --md-default-fg-color--lighter: rgba(255, 255, 255, 0.32) !important;
-    --md-default-fg-color--lightest: rgba(255, 255, 255, 0.12) !important;
+    --md-default-bg-color: #1e1e1e;
+    --md-typeset-color: #ffffff !important;
+    --md-text-color: #ffffff !important;
+    --md-default-fg-color: #ffffff !important;
+    --md-default-fg-color--light: #ffffff !important;
+    --md-default-fg-color--lighter: rgba(255, 255, 255, 0.7) !important;
+    --md-default-fg-color--lightest: rgba(255, 255, 255, 0.3) !important;
+    --md-accent-fg-color: #4dabf7;
+}
+
+/* Header styles for both modes */
+.md-header {
+    background-color: var(--md-primary-fg-color) !important;
+}
+
+/* Dark mode header text */
+[data-md-color-scheme="slate"] .md-header {
+    color: #ffffff !important;
+}
+
+/* Dark mode toggle button */
+[data-md-color-scheme="slate"] .md-header__button {
+    color: #ffffff !important;
+}
+
+/* Dark mode navigation text */
+[data-md-color-scheme="slate"] .md-nav__link,
+[data-md-color-scheme="slate"] .md-nav__title,
+[data-md-color-scheme="slate"] .md-typeset {
+    color: #ffffff !important;
+}
+
+/* Dark mode link colors */
+[data-md-color-scheme="slate"] .md-typeset a {
+    color: #4dabf7 !important;
 }
 
 /* Ensure dark mode text visibility */
