@@ -97,17 +97,33 @@
 
 /* Ensure header is visible in both modes */
 .md-header {
-    color: var(--md-default-fg-color--light) !important;
     background-color: var(--md-primary-fg-color) !important;
 }
 
-/* Header elements visibility */
-.md-header__button {
-    color: var(--md-default-fg-color--light) !important;
+/* Light mode header elements */
+[data-md-color-scheme="default"] .md-header {
+    color: #ffffff !important;
 }
 
-.md-header__title {
-    color: var(--md-default-fg-color--light) !important;
+[data-md-color-scheme="default"] .md-header__button {
+    color: #ffffff !important;
+}
+
+[data-md-color-scheme="default"] .md-header__title {
+    color: #ffffff !important;
+}
+
+/* Dark mode header elements */
+[data-md-color-scheme="slate"] .md-header {
+    color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-header__button {
+    color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-header__title {
+    color: #ffffff !important;
 }
 
 /* Navigation visibility */
