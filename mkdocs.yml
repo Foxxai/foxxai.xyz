@@ -5,6 +5,9 @@ theme:
   name: material
   logo: assets/avatar.png
   favicon: assets/avatar.png
+  font:
+    text: ["Merriweather", "Georgia", "serif"]
+    code: ["SFMono-Regular", "Consolas", "Monaco", "monospace"]
   palette: 
     # Palette toggle for light mode
     - scheme: default
