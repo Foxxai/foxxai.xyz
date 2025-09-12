@@ -143,29 +143,34 @@
 }
 
 /* Neural network background for both themes */
-body::before {
+.md-content {
+    position: relative;
+}
+
+.md-content::after {
     content: "";
-    position: fixed;
-    right: -100px;  /* Offset to the right */
-    bottom: -100px; /* Offset downward */
-    width: 800px;   /* Larger area to account for offset */
-    height: 800px;  /* Larger area to account for offset */
+    position: absolute;
+    top: 0;
+    right: -200px;
+    width: 400px;
+    height: 100%;
     background-image: url('../assets/neural-network.png');
     background-repeat: no-repeat;
-    background-position: bottom right;
+    background-position: top right;
     background-size: contain;
+    background-attachment: fixed;
     pointer-events: none;
-    opacity: 0.15;
+    opacity: 0.2;
     z-index: 0;
 }
 
 /* Light mode adjustments */
-[data-md-color-scheme="default"] body::before {
+[data-md-color-scheme="default"] .md-content::after {
     filter: brightness(0.7) contrast(0.7);
 }
 
 /* Dark mode adjustments */
-[data-md-color-scheme="slate"] body::before {
+[data-md-color-scheme="slate"] .md-content::after {
     filter: brightness(1.3) invert(1);
 }
 
