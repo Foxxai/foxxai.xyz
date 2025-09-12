@@ -189,21 +189,22 @@
 }
 
 /* Footer customization */
-.md-copyright {
+.md-footer-copyright {
     font-family: "Roboto", sans-serif !important;
     font-size: 0.8rem;
 }
 
-/* Hide default "Made with" text */
-.md-copyright__highlight {
+/* Hide all default footer text */
+.md-footer-copyright > div,
+.md-footer-copyright__highlight {
     display: none !important;
 }
 
 /* Custom copyright text */
-.md-copyright:after {
-    content: "All content copyright by the author (2025). Comments and feedback are welcome at 546f6464.jbb@gmail.com.";
-    display: block;
-    margin-top: 0.5rem;
+.md-footer-copyright:before {
+    content: "All content copyright by the author (2025). Comments and feedback are welcome at 546f6464.jbb@gmail.com." !important;
+    display: block !important;
+    margin: 1rem 0 !important;
 }
 
 /* Dark mode neural network */
