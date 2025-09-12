@@ -9,17 +9,20 @@ theme:
     text: false
     code: false
   palette:
-    # Palette toggle for dark mode
-    - scheme: slate
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
       toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-    
-    # Palette toggle for light mode
-    - scheme: default
-      toggle:
-        icon: material/brightness-7
+        icon: material/weather-night
         name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
 
   features:
     - navigation.prune
