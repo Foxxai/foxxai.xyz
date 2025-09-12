@@ -1,6 +1,37 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;500;700;900&display=swap');
 
+/* Apply Roboto to navigation and header elements */
+.md-header,
+.md-nav,
+.md-tabs,
+.md-sidebar {
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+/* Site title in header */
+.md-header__title {
+    font-family: "Roboto", Arial, sans-serif;
+    font-weight: 700;
+}
+
+/* Navigation items */
+.md-nav__item {
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Navigation section titles */
+.md-nav__title {
+    font-family: "Roboto", Arial, sans-serif;
+    font-weight: 700;
+}
+
+/* Top navigation tabs */
+.md-tabs__link {
+    font-family: "Roboto", Arial, sans-serif;
+}
+
 /* Typography customization */
 :root {
     --md-text-font: "Merriweather", Georgia, serif !important;
@@ -22,8 +53,8 @@
 
 /* Body text */
 .md-typeset {
-    font-size: 1.25rem !important;
-    line-height: 1.9;
+    font-size: 1.125rem !important;  /* Reduced from 1.25rem */
+    line-height: 1.7;                /* Reduced from 1.9 */
     color: #292929;
     font-weight: 400;
 }
