@@ -133,49 +133,47 @@
 }
 
 /* Add neural network background effect */
-.md-main__inner {
+.md-main {
     position: relative;
 }
 
-/* Container for the background */
-.md-content {
+.md-main__inner {
     position: relative;
+    z-index: 1;
 }
 
 /* Light mode neural network */
-[data-md-color-scheme="default"] .md-content::before {
+[data-md-color-scheme="default"] body::before {
     content: "";
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    top: 0;
     right: 0;
-    width: 600px;
-    height: 600px;
+    bottom: 0;
+    left: 0;
     background-image: url('../assets/neural-network-light.svg');
     background-repeat: no-repeat;
     background-position: bottom right;
+    background-size: 600px;
     pointer-events: none;
+    opacity: 0.1;
     z-index: 0;
 }
 
 /* Dark mode neural network */
-[data-md-color-scheme="slate"] .md-content::before {
+[data-md-color-scheme="slate"] body::before {
     content: "";
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    top: 0;
     right: 0;
-    width: 600px;
-    height: 600px;
+    bottom: 0;
+    left: 0;
     background-image: url('../assets/neural-network-dark.svg');
     background-repeat: no-repeat;
     background-position: bottom right;
+    background-size: 600px;
     pointer-events: none;
+    opacity: 0.1;
     z-index: 0;
-}
-
-/* Ensure content stays above the background */
-.md-content__inner {
-    position: relative;
-    z-index: 1;
 }
 
 /* Light mode header */
