@@ -79,7 +79,7 @@
 
 /* Light mode */
 [data-md-color-scheme="default"] {
-    --md-primary-fg-color: #2c3e50;
+    --md-primary-fg-color: #4a6fa5;  /* Lighter blue-grey for header */
     --md-default-fg-color: #2c3e50;
     --md-default-fg-color--light: #2c3e50;
     --md-default-bg-color: #ffffff;
@@ -88,20 +88,20 @@
 
 /* Dark mode */
 [data-md-color-scheme="slate"] {
-    --md-primary-fg-color: #2b2b2b;
+    --md-primary-fg-color: #1e2029;  /* Dark background for header */
     --md-default-fg-color: #ffffff;
     --md-default-fg-color--light: #ffffff;
-    --md-default-bg-color: #2b2b2b;
+    --md-default-bg-color: #1e2029;
     --md-typeset-color: #ffffff;
 }
 
-/* Ensure header is visible in both modes */
+/* Header base styles */
 .md-header {
     background-color: var(--md-primary-fg-color) !important;
 }
 
 /* Light mode header elements */
-[data-md-color-scheme="default"] .md-header {
+[data-md-color-scheme="default"] .md-header__title {
     color: #ffffff !important;
 }
 
@@ -109,12 +109,16 @@
     color: #ffffff !important;
 }
 
-[data-md-color-scheme="default"] .md-header__title {
+[data-md-color-scheme="default"] .md-header .md-search__input {
+    color: #ffffff !important;
+}
+
+[data-md-color-scheme="default"] .md-search__icon {
     color: #ffffff !important;
 }
 
 /* Dark mode header elements */
-[data-md-color-scheme="slate"] .md-header {
+[data-md-color-scheme="slate"] .md-header__title {
     color: #ffffff !important;
 }
 
@@ -122,8 +126,22 @@
     color: #ffffff !important;
 }
 
-[data-md-color-scheme="slate"] .md-header__title {
+[data-md-color-scheme="slate"] .md-header .md-search__input {
     color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-search__icon {
+    color: #ffffff !important;
+}
+
+/* Ensure toggle button is clearly visible */
+.md-header__button.md-icon {
+    color: #ffffff !important;
+    opacity: 0.9 !important;
+}
+
+.md-header__button.md-icon:hover {
+    opacity: 1 !important;
 }
 
 /* Navigation visibility */
