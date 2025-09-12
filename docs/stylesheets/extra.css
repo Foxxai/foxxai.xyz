@@ -71,13 +71,21 @@
 }
 
 /* Custom header styling with gradient */
-.md-header {
-    background: linear-gradient(120deg, #E6E6FA 0%, #B8C6DB 100%);
-    color: #2c3e50 !important;  /* Darker text for better contrast */
-    transition: background 0.3s ease;
+/* Light mode styles */
+[data-md-color-scheme="default"] {
+    --md-primary-fg-color: #2c3e50;
+    --md-primary-bg-color: #ffffff;
+    --md-text-color: #2c3e50;
 }
 
-/* Ensure text remains readable on the gradient */
+/* Dark mode styles */
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color: #1a1a1a;
+    --md-primary-bg-color: #ffffff;
+    --md-text-color: #ffffff;
+}
+
+/* Ensure text remains readable in both modes */
 .md-header__title,
 .md-header__topic,
 .md-nav__title,
