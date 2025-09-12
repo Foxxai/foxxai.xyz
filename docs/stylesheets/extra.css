@@ -95,53 +95,35 @@
     --md-typeset-color: #ffffff;
 }
 
-/* Header base styles */
+/* Override header styles completely */
 .md-header {
-    background-color: var(--md-primary-fg-color) !important;
+    background-color: #4a6fa5 !important;  /* Light mode color */
 }
 
-/* Light mode header elements */
-[data-md-color-scheme="default"] .md-header__title {
+[data-md-color-scheme="slate"] .md-header {
+    background-color: #1e2029 !important;  /* Dark mode color */
+}
+
+/* Force white text and icons in header for both modes */
+.md-header__title,
+.md-header__button,
+.md-header__button.md-icon,
+.md-search__icon,
+.md-header .md-search__input {
     color: #ffffff !important;
 }
 
-[data-md-color-scheme="default"] .md-header__button {
+/* Make the theme toggle extra visible */
+.md-header__button[for="__palette"] {
     color: #ffffff !important;
-}
-
-[data-md-color-scheme="default"] .md-header .md-search__input {
-    color: #ffffff !important;
-}
-
-[data-md-color-scheme="default"] .md-search__icon {
-    color: #ffffff !important;
-}
-
-/* Dark mode header elements */
-[data-md-color-scheme="slate"] .md-header__title {
-    color: #ffffff !important;
-}
-
-[data-md-color-scheme="slate"] .md-header__button {
-    color: #ffffff !important;
-}
-
-[data-md-color-scheme="slate"] .md-header .md-search__input {
-    color: #ffffff !important;
-}
-
-[data-md-color-scheme="slate"] .md-search__icon {
-    color: #ffffff !important;
-}
-
-/* Ensure toggle button is clearly visible */
-.md-header__button.md-icon {
-    color: #ffffff !important;
-    opacity: 0.9 !important;
-}
-
-.md-header__button.md-icon:hover {
+    font-weight: bold !important;
     opacity: 1 !important;
+}
+
+/* Ensure hover states are visible */
+.md-header__button:hover {
+    opacity: 0.8 !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Navigation visibility */
