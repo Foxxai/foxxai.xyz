@@ -159,30 +159,33 @@
 }
 
 /* Dark mode adjustments */
-[data-md-color-scheme="default"] {
-    /* Professional deep blue-purple for light mode headers */
-    --md-typeset-h1-color: #4a5bb9;
-    --md-typeset-h2-color: #4a5bb9;
-    --md-typeset-h3-color: #4a5bb9;
-    --md-typeset-h4-color: #4a5bb9;
-    --md-typeset-h5-color: #4a5bb9;
-    --md-typeset-h6-color: #4a5bb9;
+/* Light mode header colors */
+[data-md-color-scheme="default"] .md-typeset h1,
+[data-md-color-scheme="default"] .md-typeset h2,
+[data-md-color-scheme="default"] .md-typeset h3,
+[data-md-color-scheme="default"] .md-typeset h4,
+[data-md-color-scheme="default"] .md-typeset h5,
+[data-md-color-scheme="default"] .md-typeset h6 {
+    color: #4a5bb9 !important;
 }
 
+/* Dark mode text and header colors */
 [data-md-color-scheme="slate"] {
     /* Softer text colors for dark mode */
     --md-typeset-color: rgba(255, 255, 255, 0.85);
     --md-default-fg-color: rgba(255, 255, 255, 0.85);
     --md-default-fg-color--light: rgba(255, 255, 255, 0.75);
     --md-default-fg-color--lighter: rgba(255, 255, 255, 0.65);
-    
-    /* Soft blue-lavender for dark mode headers */
-    --md-typeset-h1-color: #a5b3e6;
-    --md-typeset-h2-color: #a5b3e6;
-    --md-typeset-h3-color: #a5b3e6;
-    --md-typeset-h4-color: #a5b3e6;
-    --md-typeset-h5-color: #a5b3e6;
-    --md-typeset-h6-color: #a5b3e6;
+}
+
+/* Dark mode header colors */
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4,
+[data-md-color-scheme="slate"] .md-typeset h5,
+[data-md-color-scheme="slate"] .md-typeset h6 {
+    color: #a5b3e6 !important;
 }
 
 /* Dark mode neural network */
