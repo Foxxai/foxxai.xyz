@@ -53,10 +53,33 @@
 
 /* Body text */
 .md-typeset {
-    font-size: 1.125rem !important;  /* Reduced from 1.25rem */
-    line-height: 1.7;                /* Reduced from 1.9 */
+    font-size: 1rem !important;  /* Further reduced to 16px */
+    line-height: 1.6 !important;
     color: #292929;
     font-weight: 400;
+}
+
+/* Force navigation font styles */
+.md-header__title,
+.md-header__topic,
+.md-nav__title,
+.md-nav__item,
+.md-nav__link {
+    font-family: "Roboto", Arial, sans-serif !important;
+}
+
+/* Additional specificity for navigation */
+[dir=ltr] .md-header__title, 
+[dir=ltr] .md-nav__title {
+    font-family: "Roboto", Arial, sans-serif !important;
+    font-weight: 500;
+}
+
+/* More specific selectors for navigation items */
+.md-nav--primary .md-nav__item,
+.md-nav--secondary .md-nav__item {
+    font-family: "Roboto", Arial, sans-serif !important;
+    font-size: 0.85rem;
 }
 
 .md-typeset p {
