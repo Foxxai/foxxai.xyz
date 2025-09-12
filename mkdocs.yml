@@ -8,6 +8,10 @@ theme:
   font:
     text: false
     code: false
+  icon:
+    logo: null
+  footer:
+    social: false
   palette:
     - scheme: default
       primary: custom

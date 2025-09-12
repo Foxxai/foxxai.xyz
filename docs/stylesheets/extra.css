@@ -189,22 +189,39 @@
 }
 
 /* Footer customization */
-.md-footer-copyright {
-    font-family: "Roboto", sans-serif !important;
-    font-size: 0.8rem;
+.md-footer {
+    background-color: var(--md-default-bg-color);
 }
 
-/* Hide all default footer text */
-.md-footer-copyright > div,
-.md-footer-copyright__highlight {
+.md-footer-meta {
+    background-color: var(--md-default-bg-color);
+}
+
+/* Hide ALL default footer content */
+.md-footer__inner {
     display: none !important;
 }
 
-/* Custom copyright text */
-.md-footer-copyright:before {
-    content: "All content copyright by the author (2025). Comments and feedback are welcome at 546f6464.jbb@gmail.com." !important;
-    display: block !important;
-    margin: 1rem 0 !important;
+.md-footer-meta__inner {
+    display: flex;
+    justify-content: flex-end;  /* Right align */
+    padding: 1rem;
+}
+
+.md-footer-copyright {
+    width: 100%;
+    text-align: right;  /* Right align */
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif !important;
+    font-size: 0.8rem;
+    margin: 0;
+    max-width: none !important;
+}
+
+/* Hide specific elements we don't want */
+.md-footer-meta__inner .md-social,
+.md-footer-copyright > div:not(:last-child),
+.md-footer-copyright__highlight {
+    display: none !important;
 }
 
 /* Dark mode neural network */
