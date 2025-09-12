@@ -133,21 +133,13 @@
 }
 
 /* Add neural network background effect */
-.root {
-    --md-neural-opacity: 0.2;
-}
-
-/* Force the main container to establish a stacking context */
-.md-main {
-    isolation: isolate;
-}
-
 /* Neural network background */
 [data-md-component="container"] {
     position: relative !important;
 }
 
-[data-md-component="container"]::before {
+/* Light mode neural network */
+[data-md-color-scheme="default"] [data-md-component="container"]::before {
     content: "";
     position: fixed;
     display: block !important;
@@ -156,24 +148,32 @@
     transform: translateY(-50%);
     width: 500px;
     height: 500px;
-    background-image: url('../assets/neural-network.png');
+    background-image: url('../assets/neural-network-light.png');
     background-repeat: no-repeat;
     background-position: center right;
     background-size: contain;
     pointer-events: none;
+    opacity: 0.15;
     z-index: 9999;
 }
 
-/* Light mode adjustments */
-[data-md-color-scheme="default"] [data-md-component="container"]::before {
-    opacity: 0.15;
-    filter: brightness(0.8);
-}
-
-/* Dark mode adjustments */
+/* Dark mode neural network */
 [data-md-color-scheme="slate"] [data-md-component="container"]::before {
+    content: "";
+    position: fixed;
+    display: block !important;
+    top: 50%;
+    right: -100px;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 500px;
+    background-image: url('../assets/neural-network-dark.png');
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: contain;
+    pointer-events: none;
     opacity: 0.15;
-    filter: brightness(2) invert(1);
+    z-index: 9999;
 }
 
 /* Light mode header */
