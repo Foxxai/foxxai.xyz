@@ -39,4 +39,10 @@ plugins:
   - search
   - tags
 
+nav:
+  - Home: index.md
+  - Select Publications: publications/index.md
+  - Academic Travelogue: travelogue/index.md
+  - Associates & Associations: associates/index.md
+
 copyright: All content copyright by the author (2025). Comments and feedback are welcome at 546f6464.jbb@gmail.com.
