@@ -38,7 +38,7 @@ extra_css:
   - stylesheets/gallery.css
 
 extra_javascript:
-  - javascripts/gallery-debug.js
+  - javascripts/gallery.js
 
 plugins:
   - search
