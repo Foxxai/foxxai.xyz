@@ -46,6 +46,7 @@
     opacity: 0;
     transform: translateY(1rem);
     transition: opacity 0.3s ease, transform 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .gallery-item:hover .gallery-caption {
@@ -78,7 +79,7 @@
     max-width: 90%;
     max-height: 90vh;
     margin: auto;
-    background-color: white;
+    background-color: var(--md-default-bg-color);
     border-radius: 12px;
     overflow: hidden;
     transform: scale(0.95);
@@ -98,8 +99,10 @@
 
 .lightbox-caption {
     padding: 1.5rem;
-    background-color: white;
-    color: var(--md-primary-fg-color);
+    background-color: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 .lightbox-close {
@@ -108,7 +111,8 @@
     right: 1rem;
     width: 2.5rem;
     height: 2.5rem;
-    background-color: white;
+    background-color: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
     border-radius: 50%;
     border: none;
     cursor: pointer;
@@ -123,6 +127,7 @@
 
 .lightbox-close:hover {
     opacity: 1;
+    transform: scale(1.1);
 }
 
 /* Responsive adjustments */
