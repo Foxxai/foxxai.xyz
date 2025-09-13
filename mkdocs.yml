@@ -38,17 +38,10 @@ extra_css:
 plugins:
   - search
   - tags
-  - blog:
-      blog_dir: entries
-      post_url_format: "{slug}"
-      post_excerpt: optional
 
 nav:
   - Home: index.md
-  - Research Blog: 
-    - Overview: entries/index.md
-    - Entries:
-      - "A Functionalist Perspective on LLM-Human Interaction": entries/2025-01-19.md
+  - Research Blog: entries/index.md
   - Select Publications: publications/index.md
   - Academic Travelogue: travelogue/index.md
   - Associates & Associations: associates/index.md
