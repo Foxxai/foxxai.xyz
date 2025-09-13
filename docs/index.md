@@ -1,9 +1,11 @@
-# Introduction
+# A Research Biography
 
-I am a life-long researcher, now functioning as a (mature) post-doctoral Indigenous Research Fellow somewhere amidst the social and computer sciences-- some call this space "computational social science." I'm not fond of this moniker, for the simple reason that social science rarely achieves or aspires to high degrees of computational reduction, regularity and predictability. At any rate, this is a subject to which I may return. My primary focus is human-machine cognitive partnering and human activity-orchestration competencies for sociocultural advancement and knowledge innovation. 
+My research theorizes, implements, and empirically interrogates human–LLM systems and technical pipelines for sociocultural advancement and constructivist knowledge production. At the same time, it reconceptualizes relations between humans and cognitive machines by adapting activity theoretical and functionalist traditions. Central to this effort is orchestrated functional complementarity, a framework for configuring differentiated but interdependent subsystems—human and artificial—into more productive, adaptive, and rational systems of knowledge activity.
 
-This site offers both formal and informal sets of technical, conceptual, perceptual, cultural and sometimes critical entries arising from various human-machine research activities, which are scheduled for two years. I have no fixed expectation about what one may find here, but it is my goal to add entries on a somewhat regular basis as a means of giving expression to a journey.
+This perspective stands apart from both inflationary and deflationary accounts of intelligence, whether human or artificial. It concentrates on what transpires at the nexus of interaction, where constraints, differentiations, and orchestrations determine the productivity of the system. Within this configuration, the human remains the primary orchestrator, endowed with a species-specific capacity to define and pursue closure objects with conviction.
 
-I'll likely say more about my background, perspectives, interests, etc. as time passes.
+My trajectory has been shaped by three major epochs. In Toronto and Montreal, I investigated ancient Near Eastern languages and religions, with a focus on media transformations across orality, textuality, digitality. I then served for a decade as Director of Digital Publishing at a local news media conglomerate, before returning to academic research on digital learning and technology through cross-cultural, lab-based, and transnational mixed-methods investigations. A third epoch, centered in Kyiv between 2014 and 2022, deepened my engagement with media and culture during a period of radical political and technological change, consolidating activity theory as a systematic framework for analyzing knowledge production.
+
+I have held technical, teaching, and research positions at McGill University, Ontario Tech University, and the University of Guelph. I am currently a Dean’s Research Fellow at York University, Canada, a citizen of the Métis Nation of Ontario, and a resident of Ukraine.
 
 
