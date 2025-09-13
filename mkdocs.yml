@@ -38,11 +38,10 @@ extra_css:
 plugins:
   - search
   - tags
-  - awesome-pages
   - blog:
       blog_dir: entries
       post_url_format: "{slug}"
-      post_excerpt: required
+      post_excerpt: optional
 
 nav:
   - Home: index.md
