@@ -1,8 +1,8 @@
 function setupGallery() {
     console.log("Setting up gallery...");
     
-    // Remove any existing lightbox to prevent duplicates
-    let existingLightbox = document.querySelector('.lightbox');
+    // Remove any existing lightbox
+    const existingLightbox = document.querySelector('.lightbox');
     if (existingLightbox) {
         existingLightbox.remove();
     }
@@ -10,6 +10,7 @@ function setupGallery() {
     // Create fresh lightbox
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox';
+    lightbox.style.display = 'none';
     lightbox.innerHTML = `
         <div class="lightbox-content">
             <img class="lightbox-image" src="" alt="">
@@ -24,92 +25,81 @@ function setupGallery() {
     const lightboxCaption = lightbox.querySelector('.lightbox-caption');
     const closeButton = lightbox.querySelector('.lightbox-close');
 
-    // Add click handlers to gallery items
-    document.querySelectorAll('.gallery-item').forEach(item => {
-        // Remove existing click listeners by cloning
-        const newItem = item.cloneNode(true);
-        item.parentNode.replaceChild(newItem, item);
-        
-        newItem.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Get image data, falling back to img attributes if needed
-            const fullImage = newItem.dataset.fullImage || newItem.querySelector('img')?.src;
-            const fullCaption = newItem.dataset.fullCaption || newItem.querySelector('img')?.alt;
-            
-            if (!fullImage) {
-                console.error('No image source found for gallery item:', newItem);
-                return;
-            }
-            
-            lightboxImage.src = fullImage;
-            lightboxCaption.innerHTML = fullCaption || '';
+    // Function to open lightbox
+    function openLightbox(fullImage, fullCaption) {
+        lightboxImage.src = fullImage;
+        lightboxCaption.innerHTML = fullCaption || '';
+        lightbox.style.display = 'flex';
+        requestAnimationFrame(() => {
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
-    });
+    }
 
-    // Close lightbox on button click
-    closeButton.addEventListener('click', closeLightbox);
-
-    // Close lightbox on background click
-    lightbox.addEventListener('click', e => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
-
-    // Close lightbox on escape key
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            closeLightbox();
-        }
-    });
-
+    // Function to close lightbox
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
         setTimeout(() => {
+            lightbox.style.display = 'none';
             lightboxImage.src = '';
             lightboxCaption.innerHTML = '';
         }, 300);
     }
-}
 
-function initGallery() {
-    // Wait a brief moment to ensure content is loaded
-    setTimeout(setupGallery, 100);
-}
-
-// Initial page load
-document.addEventListener('DOMContentLoaded', initGallery);
-
-// Material for MkDocs specific events
-document.addEventListener('DOMContentReady', initGallery);
-document.addEventListener('mdx-switch-page', initGallery);
-
-// Handle dynamic content changes and page reloads
-window.addEventListener('load', initGallery);
-
-// Watch for any changes to the DOM that might add gallery items
-const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-        if (mutation.addedNodes && mutation.addedNodes.length > 0) {
-            for (let node of mutation.addedNodes) {
-                if (node.classList && 
-                    (node.classList.contains('gallery-grid') || 
-                     node.classList.contains('gallery-item'))) {
-                    initGallery();
-                    break;
-                }
+    // Add click handlers to gallery items
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const fullImage = item.dataset.fullImage || item.querySelector('img')?.src;
+            const fullCaption = item.dataset.fullCaption || item.querySelector('img')?.alt;
+            
+            if (!fullImage) {
+                console.error('No image source found for gallery item:', item);
+                return;
             }
+            
+            openLightbox(fullImage, fullCaption);
+        };
+    });
+
+    // Close button click
+    closeButton.onclick = (e) => {
+        e.preventDefault();
+        closeLightbox();
+    };
+
+    // Background click
+    lightbox.onclick = (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    };
+
+    // Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
         }
     });
-});
+}
 
-// Start observing the document with the configured parameters
-observer.observe(document.body, {
-    childList: true,
-    subtree: true
+// Initialize gallery
+function initGallery() {
+    setupGallery();
+}
+
+// Setup on initial load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGallery);
+} else {
+    initGallery();
+}
+
+// Handle MkDocs navigation
+document.addEventListener('DOMContentReady', initGallery);
+document.addEventListener('mdx-switch-page', () => {
+    setTimeout(initGallery, 100);
 });
