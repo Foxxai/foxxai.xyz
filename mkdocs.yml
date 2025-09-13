@@ -1,5 +1,6 @@
 site_name: "Human-LLM Interaction as Functionalist Activity: Reconfiguring Techno-cultural Praxis"
 site_url: https://foxxai.xyz
+use_directory_urls: false
 
 theme:
   name: material
