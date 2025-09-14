@@ -2,6 +2,21 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "📝 Publish Draft to Live",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "FILE=${input:draftPath}; BASENAME=$(basename \"$FILE\"); DATE=${BASENAME:0:10}; MONTH=$(date -d \"$DATE\" '+%B'); mv \"$FILE\" docs/entries/ && sed -i \"1i\\\\- [$(head -n1 \"docs/entries/$BASENAME\" | cut -c3-)] ($BASENAME) ($MONTH ${DATE:0:4})\\\\n\" docs/entries/index.md"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "🌐 Serve Website",
             "type": "shell",
             "command": "source .venv/bin/activate && mkdocs serve",
@@ -34,6 +49,17 @@
                 "reveal": "always",
                 "panel": "dedicated",
                 "clear": true
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "draftPath",
+            "type": "command",
+            "command": "extension.commandvariable.file.pickFile",
+            "args": {
+                "include": "docs/_entries_drafts/essays/????-??-??_*_v??.md",
+                "description": "Select draft to publish"
             }
         }
     ]
