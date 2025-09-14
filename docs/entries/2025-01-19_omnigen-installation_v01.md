@@ -1,3 +1,13 @@
+---
+description: "Step-by-step instructions to install and run OmniGen on Ubuntu 24.04.1 with NVIDIA GPU, CUDA, cuDNN, and PyTorch."
+date: 2025-09-14
+tags:
+  - OmniGen
+  - Installation
+  - Ubuntu
+  - CUDA
+  - ScholarFlow
+---
 
 # A Highly Reduced OmniGen Installation Experience
 
