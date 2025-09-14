@@ -2,19 +2,20 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "🌐 Start Site Server",
+            "label": "🌐 Serve Website",
             "type": "shell",
             "command": "source .venv/bin/activate && mkdocs serve",
-            "isBackground": true,
-            "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
+            "isBackground": true,
+            "problemMatcher": [],
             "presentation": {
                 "reveal": "always",
                 "panel": "dedicated",
-                "clear": true
+                "clear": true,
+                "showReuseMessage": false
             }
         },
         {
