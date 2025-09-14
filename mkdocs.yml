@@ -46,9 +46,8 @@ plugins:
 
 nav:
   - Home: index.md
-  - Research Blog: 
-    - Overview: entries/index.md
-    - A Highly Reduced OmniGen Installation Experience: entries/2025-01-19.md
+  - Research Blog: entries/index.md
+  - A Highly Reduced OmniGen Installation Experience: entries/2025-01-19.md
   - Select Publications: publications/index.md
   - Academic Travelogue: travelogue/index.md
   - Associates & Associations: associates/index.md
