@@ -46,7 +46,9 @@ plugins:
 
 nav:
   - Home: index.md
-  - Research Blog: entries/index.md
+  - Research Blog: 
+    - Overview: entries/index.md
+    - A Highly Reduced OmniGen Installation Experience: entries/2025-01-19.md
   - Select Publications: publications/index.md
   - Academic Travelogue: travelogue/index.md
   - Associates & Associations: associates/index.md
@@ -56,8 +58,8 @@ markdown_extensions:
   - attr_list
   - tables
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
