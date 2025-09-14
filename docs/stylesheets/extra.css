@@ -1,3 +1,8 @@
+/* Prevent scrollbar layout shift */
+html {
+    overflow-y: scroll;
+}
+
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;500;700;900&display=swap');
 
@@ -61,6 +66,7 @@
     font-kerning: normal;
     -webkit-font-smoothing: antialiased;  /* Smoother text rendering */
     -moz-osx-font-smoothing: grayscale;
+    max-width: 100%;  /* Ensure consistent width */
 }
 
 /* Paragraph refinements */
@@ -95,6 +101,17 @@
     --md-default-bg-color: #1e2029;
     --md-typeset-color: #ffffff;
     --md-accent-fg-color: #4a6fa5;
+}
+
+/* Main content container */
+.md-content {
+    width: 100%;
+    max-width: 100%;
+}
+
+.md-content__inner {
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 /* Subtle background pattern */
