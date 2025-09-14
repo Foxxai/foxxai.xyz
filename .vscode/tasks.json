@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "🌐 Start Site Server",
+            "type": "shell",
+            "command": "source .venv/bin/activate && mkdocs serve",
+            "isBackground": true,
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            }
+        },
+        {
+            "label": "📸 Setup Photo Environment",
+            "type": "shell",
+            "command": "python -m venv .venv-photo && source .venv-photo/bin/activate && pip install -r environments/requirements.photo.txt",
+            "problemMatcher": []
+        },
+        {
+            "label": "🔄 Process Photos",
+            "type": "shell",
+            "command": "source .venv-photo/bin/activate && python scripts/process_photos.py",
+            "dependsOn": ["📸 Setup Photo Environment"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            }
+        }
+    ]
+}

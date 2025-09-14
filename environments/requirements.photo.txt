@@ -1,0 +1,4 @@
+pillow
+exif
+numpy
+opencv-python
