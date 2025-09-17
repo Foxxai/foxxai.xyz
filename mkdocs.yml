@@ -46,7 +46,7 @@ plugins:
 
 nav:
   - Home: index.md
-  - Research Blog: entries/index.md
+  - Research Blog: blogs/index.md
   - Select Publications: publications/index.md
   - Academic Travelogue: travelogue/index.md
   - Associates & Associations: associates/index.md

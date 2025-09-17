@@ -32,7 +32,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install mkdocs-material
-
+      - name: Install PyYAML for publish script
+        run: pip install pyyaml
+      - name: Update Research Blog index
+        run: python scripts/publish_entry.py
       - name: Build site
         run: mkdocs build
 

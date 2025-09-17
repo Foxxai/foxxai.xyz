@@ -1,0 +1,14 @@
+[Unit]
+Description=Blog Index Automation Watcher
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/foxxai/Repos/foxxai.xyz
+Environment="VIRTUAL_ENV=/home/foxxai/Repos/foxxai.xyz/.venv"
+Environment="PATH=/home/foxxai/Repos/foxxai.xyz/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/home/foxxai/Repos/foxxai.xyz/.venv/bin/python /home/foxxai/Repos/foxxai.xyz/scripts/blogs_watch.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
