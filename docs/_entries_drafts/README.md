@@ -12,7 +12,7 @@ docs/_entries_drafts/
 
 ## Workflow Conventions
 
-1. ChatGPT connector writes to these directories on the `dev` branch only
+1. ChatGPT connector writes to these directories on the correct folder of the staging area in the main branch
 2. All content remains in draft until manually promoted to live
 3. Directory purposes:
    - `abstracts/`: Condensed, professional summaries optimized for LinkedIn
