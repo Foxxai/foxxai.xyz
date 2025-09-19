@@ -184,6 +184,17 @@ class ImageHandler(FileSystemEventHandler):
                     print(f"Error triggering MkDocs rebuild: {e}")
             else:
                 print("MkDocs executable not found in .venv-mkdocs/bin/")
+
+            # AUTOMATION: Stage, commit, and push images and gallery markdown
+            try:
+                files_to_add = [str(FULL_DIR / image_name), str(THUMBNAILS_DIR / image_name), str(GALLERY_MD)]
+                subprocess.run(["git", "add"] + files_to_add, cwd=str(WORKSPACE_ROOT))
+                commit_msg = f"Auto: Add {image_name} and update gallery markdown"
+                subprocess.run(["git", "commit", "-m", commit_msg], cwd=str(WORKSPACE_ROOT))
+                subprocess.run(["git", "push", "origin", "main"], cwd=str(WORKSPACE_ROOT))
+                print(f"Auto-committed and pushed {image_name} and gallery markdown.")
+            except Exception as e:
+                print(f"Error during git automation: {e}")
         except Exception as e:
             print(f"Error processing {image_name}: {str(e)}")
             LOGS_DIR.mkdir(exist_ok=True)

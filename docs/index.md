@@ -1,4 +1,4 @@
-# Research Biography
+# A Research Biography
 
 My research theorizes, implements, and empirically interrogates human–LLM systems and technical pipelines for sociocultural advancement and constructivist knowledge production. At the same time, it reconceptualizes relations between humans and cognitive machines by adapting activity theoretical and functionalist traditions. Central to this effort is orchestrated functional complementarity, a framework for configuring differentiated but interdependent subsystems—human and artificial—into more productive, adaptive, and rational systems of knowledge activity.
 

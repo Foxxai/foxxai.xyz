@@ -1,0 +1,14 @@
+[Unit]
+Description=Automated Research Travelogue Photo Ingest
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/foxxai/Repos/foxxai.xyz
+Environment="PATH=/home/foxxai/Repos/foxxai.xyz/.venv-photo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/home/foxxai/Repos/foxxai.xyz/.venv-photo/bin/python /home/foxxai/Repos/foxxai.xyz/scripts/gallery/process_images.py
+Restart=on-failure
+User=foxxai
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=Automated MkDocs Rebuild After Photo Processing
+After=photo_ingest.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/foxxai/Repos/foxxai.xyz
+ExecStart=/home/foxxai/Repos/foxxai.xyz/.venv-mkdocs/bin/mkdocs build
+Restart=on-failure
+User=foxxai
+
+[Install]
+WantedBy=multi-user.target
