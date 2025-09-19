@@ -2,3 +2,5 @@ pillow
 exif
 numpy
 opencv-python
+pyyaml
+watchdog

@@ -2,11 +2,17 @@
 
 A chronicle of academic journeys, conferences, research visits, and collaborative endeavors across the globe.
 
-<div markdown="1" class="gallery-grid">
-<div markdown="1" class="gallery-item" 
-     data-full-image="../assets/travelogue/full/PXL_20250913_142859898.jpg"
-     data-full-caption="Presenting our latest findings on human-AI collaborative workflows at the AGI-25 conference. This talk highlighted the emerging patterns in how humans and language models cooperatively solve complex problems.">
-<img class="gallery-thumbnail" src="../assets/travelogue/thumbnails/PXL_20250913_142859898.jpg" alt="Speaking at AGI-25 conference podium">
-<div class="gallery-caption">Speaking at AGI-25 conference</div>
+<div class="gallery-grid">
+<div class="gallery-item" 
+     data-full-image="../assets/travelogue/full/PXL_20250515_172731436.MP copy.jpg"
+     data-full-caption="Detailed caption for PXL_20250515_172731436.MP copy">
+<img class="gallery-thumbnail" src="../assets/travelogue/thumbnails/PXL_20250515_172731436.MP copy.jpg" alt="PXL_20250515_172731436.MP copy">
+<div class="gallery-caption">Photo: PXL_20250515_172731436.MP copy</div>
+</div>
+<div class="gallery-item" 
+     data-full-image="../assets/travelogue/full/PXL_20250517_172731436.MP.jpg"
+     data-full-caption="Detailed caption for PXL_20250517_172731436.MP">
+<img class="gallery-thumbnail" src="../assets/travelogue/thumbnails/PXL_20250517_172731436.MP.jpg" alt="PXL_20250517_172731436.MP">
+<div class="gallery-caption">Photo: PXL_20250517_172731436.MP</div>
 </div>
 </div>

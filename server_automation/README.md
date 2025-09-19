@@ -17,6 +17,47 @@ This directory contains automation scripts and service definitions for running b
   sudo systemctl status blogs_watch
   ```
 
-## Notes
-- Update paths in the service file if you move your project.
-- Document any additional automation scripts here as you add them.
+## Research Travelogue Photo Ingest
+- `photo_ingest.service`: Systemd unit file to automate photo processing for the Research Travelogue section.
+- Uses `.venv-photo` for all Python dependencies.
+- To enable and start the service:
+  ```bash
+  sudo cp server_automation/photo_ingest.service /etc/systemd/system/
+  sudo systemctl daemon-reload
+  sudo systemctl enable photo_ingest.service
+  sudo systemctl start photo_ingest.service
+  ```
+- To check status:
+  ```bash
+  sudo systemctl status photo_ingest.service
+  ```
+
+## MkDocs Rebuild Automation
+- `mkdocs_rebuild.service`: Systemd unit file to automatically rebuild the MkDocs static site after photo processing.
+- Uses `.venv-mkdocs` for all MkDocs dependencies.
+- To enable and start the service:
+  ```bash
+  sudo cp server_automation/mkdocs_rebuild.service /etc/systemd/system/
+  sudo systemctl daemon-reload
+  sudo systemctl enable mkdocs_rebuild.service
+  sudo systemctl start mkdocs_rebuild.service
+  ```
+- To check status:
+  ```bash
+  sudo systemctl status mkdocs_rebuild.service
+  ```
+
+### Customization & Portability
+- Update `WorkingDirectory`, `ExecStart`, and `User` in the service file for your environment.
+- Ensure `.venv-photo` and `.venv-mkdocs` are present and all requirements are installed.
+- SELinux and firewall rules may need to be updated for file access and automation.
+- Document any changes in this README for future migrations.
+
+### Troubleshooting
+- Check logs with `journalctl -u photo_ingest.service` and `journalctl -u mkdocs_rebuild.service`
+- Ensure all Python and MkDocs dependencies are installed in `.venv-photo` and `.venv-mkdocs`
+- Verify file permissions for the service user
+
+---
+
+Add additional services and document them here as you expand automation.

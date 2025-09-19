@@ -5,9 +5,9 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/home/foxxai/Repos/foxxai.xyz
-Environment="VIRTUAL_ENV=/home/foxxai/Repos/foxxai.xyz/.venv"
-Environment="PATH=/home/foxxai/Repos/foxxai.xyz/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-ExecStart=/home/foxxai/Repos/foxxai.xyz/.venv/bin/mkdocs serve --dev-addr=127.0.0.1:8000
+Environment="VIRTUAL_ENV=/home/foxxai/Repos/foxxai.xyz/.venv-mkdocs"
+Environment="PATH=/home/foxxai/Repos/foxxai.xyz/.venv-mkdocs/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/home/foxxai/Repos/foxxai.xyz/.venv-mkdocs/bin/python -m mkdocs serve --dev-addr=127.0.0.1:8000
 Restart=always
 
 [Install]

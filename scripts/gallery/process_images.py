@@ -1,3 +1,16 @@
+# Configuration for travelogue_ingest workflow
+#!/usr/bin/env python3
+import os
+import sys
+import time
+import shutil
+from pathlib import Path
+import yaml
+from PIL import Image
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+
+WORKSPACE_ROOT = Path(__file__).parent.parent.parent.resolve()
 #!/usr/bin/env python3
 
 import os
@@ -11,21 +24,28 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 # Configuration
-WORKSPACE_ROOT = Path(__file__).parent.parent.resolve()
+def find_project_root(start_path):
+    current = start_path.resolve()
+    while current != current.parent:
+        if (current / "mkdocs.yml").exists():
+            return current
+        current = current.parent
+    return start_path.resolve()
+
+WORKSPACE_ROOT = find_project_root(Path(__file__))
+print(f"Workspace root: {WORKSPACE_ROOT}")
 print(f"Workspace root: {WORKSPACE_ROOT}")
 HOT_FOLDER = WORKSPACE_ROOT / "hot_folder"
-print(f"Hot folder: {HOT_FOLDER}")
-NEW_IMAGES = HOT_FOLDER / "new_images"
-print(f"New images folder: {NEW_IMAGES}")
-THUMBNAILS_DIR = WORKSPACE_ROOT / "docs/assets/travelogue/thumbnails"
-print(f"Thumbnails directory: {THUMBNAILS_DIR}")
-FULL_DIR = WORKSPACE_ROOT / "docs/assets/travelogue/full"
-print(f"Full images directory: {FULL_DIR}")
-CAPTIONS_FOLDER = HOT_FOLDER / "captions"
+TRAVELOGUE_INGEST = WORKSPACE_ROOT / "travelogue_ingest"
+NEW_IMAGES = TRAVELOGUE_INGEST / "new_images"
+PROCESSED_DIR = TRAVELOGUE_INGEST / "processed"
+CAPTIONS_DIR = TRAVELOGUE_INGEST / "captions"
+LOGS_DIR = TRAVELOGUE_INGEST / "logs"
 THUMBNAILS_DIR = WORKSPACE_ROOT / "docs/assets/travelogue/thumbnails"
 FULL_DIR = WORKSPACE_ROOT / "docs/assets/travelogue/full"
 GALLERY_MD = WORKSPACE_ROOT / "docs/travelogue/index.md"
-METADATA_FILE = HOT_FOLDER / "gallery_metadata.yml"
+METADATA_FILE = CAPTIONS_DIR / "gallery_metadata.yml"
+ERROR_LOG = LOGS_DIR / "errors.log"
 
 # Image processing settings
 THUMBNAIL_SIZE = (500, 500)
@@ -82,121 +102,119 @@ def save_metadata(metadata):
 
 def update_gallery_markdown(metadata):
     """Update the gallery markdown file with all images."""
-    # Read existing content before the gallery
-    header_content = ""
-    if GALLERY_MD.exists():
-        with open(GALLERY_MD, 'r') as f:
-            content = f.read()
-            header_end = content.find('<div class="gallery-grid">')
-            if header_end != -1:
-                header_content = content[:header_end]
-            else:
-                header_content = content
-    
-    # Generate gallery items
+    # Overwrite the entire markdown file with header and single grid
+    header_content = (
+        "# Academic Travelogue\n\n"
+        "A chronicle of academic journeys, conferences, research visits, and collaborative endeavors across the globe.\n"
+    )
     gallery_items = []
+    import time
+    cache_bust = int(time.time())
     for image_name, data in sorted(metadata.items(), key=lambda x: x[1].get('date', ''), reverse=True):
-        item = f'''    <div class="gallery-item" 
-         data-full-image="/assets/travelogue/full/{image_name}"
-         data-full-caption="{data.get('full_caption', '')}">
-        <img class="gallery-thumbnail" src="/assets/travelogue/thumbnails/{image_name}" alt="{data.get('alt_text', '')}">
-        <div class="gallery-caption">{data.get('short_caption', '')}</div>
-    </div>'''
+        item = f'''<div class="gallery-item" 
+     data-full-image="../assets/travelogue/full/{image_name}?v={cache_bust}"
+     data-full-caption="{data.get('full_caption', '')}">
+<img class="gallery-thumbnail" src="../assets/travelogue/thumbnails/{image_name}?v={cache_bust}" alt="{data.get('alt_text', '')}">
+<div class="gallery-caption">{data.get('short_caption', '')}</div>
+</div>'''
         gallery_items.append(item)
-    
-    # Combine content
-    gallery_content = '<div class="gallery-grid">\n'
-    gallery_content += '\n\n'.join(gallery_items)
-    gallery_content += '\n</div>'
-    
-    # Write the complete file
     with open(GALLERY_MD, 'w') as f:
-        f.write(f"{header_content.strip()}\n\n{gallery_content}")
-
+        f.write(header_content)
+        f.write('\n<div class="gallery-grid">\n')
+        f.write('\n'.join(gallery_items))
+        f.write('\n</div>\n')
+    
 class ImageHandler(FileSystemEventHandler):
     def on_created(self, event):
         if event.is_directory:
             return
-            
         # Only process image files
-        if not event.src_path.lower().endswith(('.jpg', '.jpeg', '.png')):
+        if not event.src_path.lower().endswith((".jpg", ".jpeg", ".png")):
             return
-            
         image_path = Path(event.src_path)
         image_name = image_path.name
-        
         print(f"Processing new image: {image_name}")
-        
         try:
-            # Create thumbnails directory if it doesn't exist
             THUMBNAILS_DIR.mkdir(parents=True, exist_ok=True)
             FULL_DIR.mkdir(parents=True, exist_ok=True)
-            
-            # Process the image
+            # Archive existing thumbnail
+            archive_thumb_dir = THUMBNAILS_DIR / "archive"
+            archive_thumb_dir.mkdir(parents=True, exist_ok=True)
             thumbnail_path = THUMBNAILS_DIR / image_name
+            if thumbnail_path.exists():
+                ts = time.strftime('%Y%m%d%H%M%S')
+                archived_thumb = archive_thumb_dir / f"{image_path.stem}_{ts}.jpg"
+                shutil.move(str(thumbnail_path), str(archived_thumb))
+            # Archive existing full image
+            archive_full_dir = FULL_DIR / "archive"
+            archive_full_dir.mkdir(parents=True, exist_ok=True)
             full_path = FULL_DIR / image_name
-            
-            # Create thumbnail and optimize full image
+            if full_path.exists():
+                ts = time.strftime('%Y%m%d%H%M%S')
+                archived_full = archive_full_dir / f"{image_path.stem}_{ts}.jpg"
+                shutil.move(str(full_path), str(archived_full))
             create_thumbnail(image_path, thumbnail_path)
             optimize_full_image(image_path, full_path)
-            
-            # Load existing metadata
             metadata = load_metadata()
-            
-            # Check for caption file
-            caption_file = CAPTIONS_FOLDER / f"{image_path.stem}.yml"
-            if caption_file.exists():
-                with open(caption_file, 'r') as f:
-                    image_metadata = yaml.safe_load(f)
+            if image_name in metadata:
+                image_metadata = metadata[image_name]
             else:
-                # Create template caption file
                 image_metadata = {
-                    'short_caption': 'Add a short caption here',
-                    'full_caption': 'Add a detailed description here',
-                    'alt_text': 'Add alt text here',
+                    'short_caption': f'Photo: {image_path.stem}',
+                    'full_caption': f'Detailed caption for {image_path.stem}',
+                    'alt_text': image_path.stem,
                     'date': time.strftime('%Y-%m-%d')
                 }
-                with open(caption_file, 'w') as f:
-                    yaml.dump(image_metadata, f, default_flow_style=False)
-            
-            # Update metadata
             metadata[image_name] = image_metadata
             save_metadata(metadata)
-            
-            # Update gallery markdown
             update_gallery_markdown(metadata)
-            
-            # Move processed image to an archive folder
-            archive_dir = HOT_FOLDER / "processed"
-            archive_dir.mkdir(exist_ok=True)
-            shutil.move(image_path, archive_dir / image_name)
-            
+            PROCESSED_DIR.mkdir(exist_ok=True)
+            shutil.move(str(image_path), str(PROCESSED_DIR / image_name))
             print(f"Successfully processed {image_name}")
-            
+            # Trigger MkDocs rebuild after processing
+            mkdocs_venv = WORKSPACE_ROOT / ".venv-mkdocs" / "bin" / "mkdocs"
+            if mkdocs_venv.exists():
+                import subprocess
+                try:
+                    result = subprocess.run([str(mkdocs_venv), "build"], cwd=str(WORKSPACE_ROOT), capture_output=True, text=True)
+                    print("MkDocs rebuild output:", result.stdout)
+                    if result.returncode != 0:
+                        print("MkDocs rebuild error:", result.stderr)
+                except Exception as e:
+                    print(f"Error triggering MkDocs rebuild: {e}")
+            else:
+                print("MkDocs executable not found in .venv-mkdocs/bin/")
         except Exception as e:
             print(f"Error processing {image_name}: {str(e)}")
+            LOGS_DIR.mkdir(exist_ok=True)
+            with open(ERROR_LOG, "a") as logf:
+                logf.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} Error processing {image_name}: {str(e)}\n")
 
 def main():
     # Create necessary directories
     NEW_IMAGES.mkdir(parents=True, exist_ok=True)
-    CAPTIONS_FOLDER.mkdir(parents=True, exist_ok=True)
+    PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+    CAPTIONS_DIR.mkdir(parents=True, exist_ok=True)
+    LOGS_DIR.mkdir(parents=True, exist_ok=True)
     THUMBNAILS_DIR.mkdir(parents=True, exist_ok=True)
     FULL_DIR.mkdir(parents=True, exist_ok=True)
-    
-    print(f"Checking for existing images...")
-    for image_path in NEW_IMAGES.glob("*.jp*g"):
-        print(f"Found existing image: {image_path}")
-        event = type('Event', (), {'src_path': str(image_path), 'is_directory': False})()
-        ImageHandler().on_created(event)
-    
+    print(f"Regenerating gallery markdown from all metadata...")
+    metadata = load_metadata()
+    update_gallery_markdown(metadata)
+    print(f"Gallery markdown updated with {len(metadata)} images.")
+    # Continue to process new images as before
+    handler = ImageHandler()
+    for ext in ["*.jpg", "*.jpeg", "*.png"]:
+        for image_path in NEW_IMAGES.glob(ext):
+            print(f"Found existing image: {image_path}")
+            event = type('Event', (), {'src_path': str(image_path), 'is_directory': False})()
+            handler.on_created(event)
     # Set up the observer
     observer = Observer()
-    observer.schedule(ImageHandler(), str(NEW_IMAGES), recursive=False)
+    observer.schedule(handler, str(NEW_IMAGES), recursive=False)
     observer.start()
-    
     print(f"Watching for new images in {NEW_IMAGES}")
     print("Press Ctrl+C to stop")
-    
     try:
         while True:
             time.sleep(1)
