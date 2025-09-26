@@ -4,18 +4,5 @@
 			"path": "."
 		}
 	],
-	"settings": {
-		"terminal.integrated.defaultProfile.linux": "bash",
-		"terminal.integrated.profiles.linux": {
-			"bash": {
-				"path": "/bin/bash",
-				"args": ["--noprofile", "--norc"]
-			}
-		},
-		"terminal.integrated.inheritEnv": false,
-		"terminal.integrated.fontSize": 12,
-		"terminal.integrated.fontFamily": "Ubuntu Sans Mono",
-		"terminal.integrated.fontWeight": "500",
-		"editor.fontSize": 12
-	}
+
 }
